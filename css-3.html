@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Themed Landing Page</title>
+    <style>
+        :root {
+            --main-color: #4CAF50;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --spacing: 20px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+            background: var(--bg-color);
+        }
+
+        nav {
+            background: var(--main-color);
+            padding: var(--spacing);
+            color: white;
+            text-align: center;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing);
+            padding: var(--spacing);
+        }
+
+        .feature {
+            flex: 1 1 200px;
+            background: white;
+            padding: var(--spacing);
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: var(--main-color);
+            color: white;
+            text-align: center;
+            padding: var(--spacing);
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .features {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>My Landing Page</h1>
+    </nav>
+
+    <section class="hero" id="hero">
+        <h2>Welcome!</h2>
+        <p>This is a themed landing page with smooth scroll effects.</p>
+    </section>
+
+    <section class="features">
+        <div class="feature">Feature One</div>
+        <div class="feature">Feature Two</div>
+        <div class="feature">Feature Three</div>
+    </section>
+
+    <footer>
+        &copy; 2025 My Website
+    </footer>
+
+
+    <div style="height: 500px;"></div>
+
+    <script>
+        function checkHeroVisible() {
+            const hero = document.getElementById('hero');
+            const rect = hero.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                hero.classList.add('visible');
+            }
+        }
+
+        window.addEventListener('scroll', checkHeroVisible);
+        window.addEventListener('load', checkHeroVisible);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabbed Interface</title>
+    <style>
+        .tabs {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .labels {
+            display: flex;
+        }
+
+        .labels label {
+            flex: 1;
+            padding: 10px;
+            background: #ddd;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        input#tab1:checked ~ .content #content1,
+        input#tab2:checked ~ .content #content2,
+        input#tab3:checked ~ .content #content3 {
+            display: block;
+        }
+
+        .content div {
+            display: none;
+            padding: 20px;
+            background: #f9f9f9;
+            animation: fade 0.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        input#tab1:checked ~ .labels label[for="tab1"],
+        input#tab2:checked ~ .labels label[for="tab2"],
+        input#tab3:checked ~ .labels label[for="tab3"] {
+            background: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs">
+        <input type="radio" name="tab" id="tab1" checked>
+        <input type="radio" name="tab" id="tab2">
+        <input type="radio" name="tab" id="tab3">
+
+        <div class="labels">
+            <label for="tab1">Tab 1</label>
+            <label for="tab2">Tab 2</label>
+            <label for="tab3">Tab 3</label>
+        </div>
+
+        <div class="content">
+            <div id="content1">This is content for Tab 1.</div>
+            <div id="content2">This is content for Tab 2.</div>
+            <div id="content3">This is content for Tab 3.</div>
+        </div>
+    </div>
+
+</body>
+</html>

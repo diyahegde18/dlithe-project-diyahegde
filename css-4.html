@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vertical Timeline</title>
+    <style>
+        .timeline {
+            position: relative;
+            margin: 50px auto;
+            padding-left: 40px;
+            border-left: 2px solid gray;
+            max-width: 400px;
+        }
+
+        .event {
+            position: relative;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-left: 5px solid transparent;
+            transition: 0.3s;
+        }
+
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background: gray;
+            border-radius: 50%;
+        }
+
+        .event:hover {
+            background: #e0f7fa;
+            border-left-color: #00acc1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="timeline">
+        <div class="event">
+            <h4>January 2025</h4>
+            <p>Started new project development.</p>
+        </div>
+        <div class="event">
+            <h4>March 2025</h4>
+            <p>Beta version released.</p>
+        </div>
+        <div class="event">
+            <h4>June 2025</h4>
+            <p>Official launch.</p>
+        </div>
+    </div>
+
+</body>
+</html>
